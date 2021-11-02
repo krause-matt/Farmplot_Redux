@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
 import googleAuthReducer from "./googleAuthReducer";
 
 export default combineReducers({
-  auth: googleAuthReducer
+  auth: googleAuthReducer,
+  form: formReducer
 });

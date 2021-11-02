@@ -12,8 +12,11 @@ const Header = () => {
           <Link to="/">Home</Link>
         </a>
         <a className="item">
-          <Link to="/rows/edit">Edit</Link>
+          <Link to="/rows/new">New</Link>
         </a>
+        <a className="item">
+          <Link to="/rows/edit">Edit</Link>
+        </a>        
         <div className="right item">
           <a className="item">
             <GoogleAuth />
