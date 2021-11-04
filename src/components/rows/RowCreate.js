@@ -1,5 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { createRow } from "../../actions/";
 
 class RowCreate extends React.Component {
 
