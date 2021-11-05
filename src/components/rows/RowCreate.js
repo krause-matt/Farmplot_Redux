@@ -28,8 +28,8 @@ class RowCreate extends React.Component {
     );
   };
 
-  onSubmit(formValues) {
-    console.log(formValues)
+  onSubmit = (formValues) => {
+    this.props.createRow(formValues)
   };
 
 
@@ -59,7 +59,9 @@ const validate = (formValues) => {
 };
   
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: "rowCreate",
   validate: validate
 })(RowCreate);
+
+export default connect(null, {createRow})(formWrapped)
