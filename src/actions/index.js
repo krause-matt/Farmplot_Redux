@@ -16,12 +16,16 @@ export const signOut = () => {
 };
 
 //asynchronous action creator
-export const createRow = formValues => async dispatch => {
-  const response = await rows.post("/rows", formValues);
+export const createRow = formValues => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  const response = await rows.post("/rows", {...formValues, userId});
+
   dispatch({
     type: CREATE_ROW,
     payload: response.data
   });
+
+  
 };
 
 export const getRows = () => async dispatch => {

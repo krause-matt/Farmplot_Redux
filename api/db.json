@@ -6,23 +6,25 @@
       "id": 1
     },
     {
-      "plant": "carrot",
-      "variety": "orange",
-      "id": 2
-    },
-    {
-      "plant": "carrot",
-      "variety": "orange",
-      "id": 3
-    },
-    {
       "plant": "potato",
       "variety": "yukon gold",
-      "id": 4
+      "id": 2
     },
     {
       "plant": "kale",
       "variety": "dino",
+      "id": 3
+    },
+    {
+      "plant": "bell pepper",
+      "variety": "green",
+      "userId": "113298301759812333784",
+      "id": 4
+    },
+    {
+      "plant": "garlic",
+      "variety": "stiffneck",
+      "userId": null,
       "id": 5
     }
   ]
