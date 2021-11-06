@@ -54,9 +54,11 @@ export const deleteRow = (id) => async dispatch => {
 };
 
 export const editRow = (id, formValues) => async dispatch => {
-  const response = await rows.put(`/rows/${id}`, formValues);
+  const response = await rows.patch(`/rows/${id}`, formValues);
   dispatch({
     type: EDIT_ROW,
     payload: response.data
   });
+
+  history.push("/");
 };

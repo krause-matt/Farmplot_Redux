@@ -7,31 +7,20 @@
     },
     {
       "plant": "potato",
-      "variety": "yukon gold",
-      "id": 2
-    },
-    {
-      "plant": "kale",
-      "variety": "dino",
-      "id": 3
-    },
-    {
-      "plant": "bell pepper",
-      "variety": "green",
+      "variety": "russett",
       "userId": "113298301759812333784",
-      "id": 4
-    },
-    {
-      "plant": "garlic",
-      "variety": "stiffneck",
-      "userId": null,
-      "id": 5
+      "id": 2
     },
     {
       "plant": "onion",
       "variety": "red",
+      "id": 3
+    },
+    {
+      "plant": "bell pepper",
+      "variety": "red",
       "userId": "113298301759812333784",
-      "id": 6
+      "id": 4
     }
   ]
 }
