@@ -12,13 +12,9 @@ class RowList extends React.Component {
   userAuthorize = (row) => {
     if (row.userId === this.props.curUserId && this.props.curUserId) {
       return (
-        <div>
-          <button className="ui button">
-            <Link to="rows/edit">Edit</Link>
-          </button>
-          <button className="ui button">
-            <Link to="rows/delete">Delete</Link>
-          </button>
+        <div>          
+          <Link className="ui button" to={`/rows/edit/${row.id}`}>Edit</Link>          
+          <Link className="ui button" to="rows/delete">Delete</Link>         
         </div>        
       );
     };
