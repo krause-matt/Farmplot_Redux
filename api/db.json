@@ -1,26 +1,16 @@
 {
   "rows": [
     {
-      "plant": "carrot",
-      "variety": "orange",
+      "plant": "tomato",
+      "variety": "cherry",
+      "color": {
+        "r": 183,
+        "g": 28,
+        "b": 28,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
       "id": 1
-    },
-    {
-      "plant": "potato",
-      "variety": "russett",
-      "userId": "113298301759812333784",
-      "id": 2
-    },
-    {
-      "plant": "onion",
-      "variety": "red",
-      "id": 3
-    },
-    {
-      "plant": "bell pepper",
-      "variety": "red",
-      "userId": "113298301759812333784",
-      "id": 4
     }
   ]
 }

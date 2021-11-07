@@ -21,8 +21,8 @@ class RowEdit extends React.Component {
     }
     return (
       <div>
-        <h3>Edit Row</h3>
-        <RowForm initialValues={_.pick(this.props.row, "plant", "variety")} onSubmit={this.onSubmit} />
+        <h3>Edit Garden Row</h3>
+        <RowForm initialValues={_.pick(this.props.row, "plant", "variety", "color")} onSubmit={this.onSubmit} />
       </div>      
     );
   }  

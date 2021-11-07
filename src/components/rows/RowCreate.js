@@ -12,7 +12,7 @@ class RowCreate extends React.Component {
   render() {
     return (
       <div>
-        <h3>Create a Row</h3>
+        <h3>Create a Garden Row</h3>
         <RowForm onSubmit={this.onSubmit} />
       </div>
     );

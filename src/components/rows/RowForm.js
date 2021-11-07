@@ -1,5 +1,7 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, change } from "redux-form";
+import { SwatchesPicker } from "react-color";
+
 
 class RowForm extends React.Component {
 
@@ -13,16 +15,24 @@ class RowForm extends React.Component {
     };
   };
 
-  renderInput = ({input, label, meta}) => {
+  renderTextInput = ({input, label, meta}) => {
     const fieldClass = `field ${meta.error && meta.touched ? "error" : ""}`
-
     return (
       <div className={fieldClass}>
-        <label>{label} </label>
+        <label>{label}</label>
         <input {...input} autoComplete="off"/>
         {this.errorCheck(meta)}
+      </div>      
+    );
+  };
+
+  colorPicker = ({input, label, meta}) => {
+    const colorClass = (typeof(this.props.initialValues) != "undefined") ? this.props.initialValues.color : "#fff"
+    return (
+      <div className="field">
+        <label>{label}</label>
+        <SwatchesPicker color={colorClass} onChange={(color) => { this.props.change("color", color.rgb) }}/>
       </div>
-      
     );
   };
 
@@ -30,12 +40,12 @@ class RowForm extends React.Component {
     this.props.onSubmit(formValues)
   };
 
-
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
-        <Field name="plant" component={this.renderInput} label="Enter Plant" />
-        <Field name="variety" component={this.renderInput} label="Enter Variety" />
+        <Field name="plant" component={this.renderTextInput} label="Enter Plant" />
+        <Field name="variety" component={this.renderTextInput} label="Enter Variety" />
+        <Field name="color" component={this.colorPicker} label="Choose Row Color" />
         <button className="ui button teal">Submit</button>
       </form>
     );
@@ -54,8 +64,7 @@ const validate = (formValues) => {
   };
 
   return errors;
-};
-  
+};  
 
 export default reduxForm({
   form: "rowForm",

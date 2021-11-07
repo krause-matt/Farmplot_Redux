@@ -13,9 +13,6 @@ const Header = () => {
         </a>
         <a className="item">
           <Link to="/rows/new">New</Link>
-        </a>
-        <a className="item">
-          <Link to="/rows/edit">Edit</Link>
         </a>        
         <div className="right item">
           <a className="item">
