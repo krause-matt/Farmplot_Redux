@@ -20,13 +20,18 @@ class RowList extends React.Component {
     };
   };
 
-  rowList() {
+  rgbaConvert = (row) => {
+    const {r, g, b, a} = row.color;
+    return `rgba(${r}, ${g}, ${b}, ${a})`
+  }
+
+  rowList() {    
     return this.props.rows.map((row) => {
       return (
-        <div>
+        <div style={{backgroundColor: this.rgbaConvert(row)}}>      
           {row.plant}
           {this.userAuthorize(row)}        
-        </div>        
+        </div>               
       );
     });
   };
@@ -34,7 +39,7 @@ class RowList extends React.Component {
   createRowButton = () => {
     if (this.props.isSignedIn) {
       return (
-        <div style={{textAlign: "right"}}>
+        <div className="ui button right floated content" style={{textAlign: "right"}}>
           <Link to="/rows/new">Create Row</Link>
         </div>
       );

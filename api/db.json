@@ -4,13 +4,49 @@
       "plant": "tomato",
       "variety": "cherry",
       "color": {
-        "r": 183,
-        "g": 28,
-        "b": 28,
+        "r": 191,
+        "g": 54,
+        "b": 12,
         "a": 1
       },
       "userId": "113298301759812333784",
       "id": 1
+    },
+    {
+      "plant": "eggplant",
+      "variety": "italian",
+      "color": {
+        "r": 48,
+        "g": 63,
+        "b": 159,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
+      "id": 2
+    },
+    {
+      "plant": "corn",
+      "variety": "sweet",
+      "color": {
+        "r": 255,
+        "g": 235,
+        "b": 59,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
+      "id": 3
+    },
+    {
+      "plant": "kale",
+      "variety": "dino",
+      "color": {
+        "r": 56,
+        "g": 142,
+        "b": 60,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
+      "id": 4
     }
   ]
 }
