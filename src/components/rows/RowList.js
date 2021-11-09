@@ -28,9 +28,12 @@ class RowList extends React.Component {
   rowList() {    
     return this.props.rows.map((row) => {
       return (
-        <div style={{backgroundColor: this.rgbaConvert(row)}}>      
-          {row.plant}
-          {this.userAuthorize(row)}        
+        <div key={row.id} style={{backgroundColor: this.rgbaConvert(row)}}>
+          <div data-tooltip="test" data-position="left center">
+            {row.plant}
+            {this.userAuthorize(row)}
+            <div className="ui divider"></div>      
+          </div>                
         </div>               
       );
     });
