@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getRows } from "../../actions/index";
 import { Link } from "react-router-dom";
+import { RowDetails } from "./RowDetails";
 
 class RowList extends React.Component {
 
@@ -12,29 +13,32 @@ class RowList extends React.Component {
   userAuthorize = (row) => {
     if (row.userId === this.props.curUserId && this.props.curUserId) {
       return (
-        <div>          
-          <Link className="ui button" to={`/rows/edit/${row.id}`}>Edit</Link>          
-          <Link className="ui button" to={`/rows/delete/${row.id}`}>Delete</Link>         
-        </div>        
+        <React.Fragment>          
+          <Link className="ui button right floated" to={`/rows/edit/${row.id}`}>Edit</Link>          
+          <Link className="ui button right floated" to={`/rows/delete/${row.id}`}>Delete</Link>         
+        </React.Fragment>        
       );
     };
   };
 
   rgbaConvert = (row) => {
     const {r, g, b, a} = row.color;
-    return `rgba(${r}, ${g}, ${b}, ${a})`
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
   }
 
   rowList() {    
     return this.props.rows.map((row) => {
       return (
-        <div key={row.id} style={{backgroundColor: this.rgbaConvert(row)}}>
-          <div>
-            {row.plant}
-            {this.userAuthorize(row)}
-            <div className="ui divider"></div>      
-          </div>                
-        </div>               
+        <div className="item" key={row.id}>          
+          <div className="content" style={{backgroundColor: this.rgbaConvert(row)}}>
+              <Link className="header" to={`/rows/${row.id}`}>{row.plant}</Link>
+              <div className="description">
+                {row.variety}
+                {this.userAuthorize(row)} 
+              </div>                      
+              <div className="ui divider"></div>                     
+          </div> 
+        </div>                      
       );
     });
   };
