@@ -16,7 +16,7 @@ const App = () => {
         <div>
           <Header />     
           <Route path="/rows/new" exact component={RowCreate} />                  
-          <Route path="/rows/delete" exact component={RowDelete} />
+          <Route path="/rows/delete/:id" exact component={RowDelete} />
           <Route path="/rows/edit/:id" exact component={RowEdit} />
           <Route path="/" exact component={RowList} />
           <Route path="/rows/details" exact component={RowDetails} />

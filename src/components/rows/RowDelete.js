@@ -1,24 +1,50 @@
 import React from "react";
 import Modal from "../Modal";
+import history from "../../history";
+import { connect } from "react-redux";
+import { getRow, deleteRow } from "../../actions/index";
+import { Link } from "react-router-dom";
 
-const RowDelete = () => {
-  const actions = (
-    <div>
-      <button className="ui button negative">Delete</button>
-      <button className="ui button">Cancel</button>
-    </div>
-  );
 
-  return (
-    <div>
-      RowDelete
-      <Modal 
-        title="Delete Garden Row"
-        content="Are you sure you'd like to delete this garden row?"
-        actions={actions}
-      /> 
-    </div>
-  );
+class RowDelete extends React.Component {
+
+  componentDidMount() {
+    this.props.getRow(this.props.match.params.id);
+  };
+
+  actions() {
+    return (
+      <React.Fragment>
+        <button onClick={() => this.props.deleteRow(this.props.match.params.id)} className="ui button negative">Delete</button>
+        <Link className="ui button" to="/">Cancel</Link>
+      </React.Fragment>
+    );
+  };
+
+  deleteMessage() {
+    if (!this.props.row) {
+      return "Are you sure you would like to delete this row?";
+    } else {
+      return `Are you sure you would like to delete the ${this.props.row.plant} row?`;
+    };
+  };
+  
+  render() {
+    return (
+        <Modal 
+          title="Delete Garden Row"
+          content={this.deleteMessage()}
+          actions={this.actions()}
+          dismiss={() => history.push("/")}
+        />
+    );
+  };  
 };
 
-export default RowDelete;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    row: state.rows[ownProps.match.params.id]
+  }    
+}
+
+export default connect(mapStateToProps, {getRow, deleteRow})(RowDelete);

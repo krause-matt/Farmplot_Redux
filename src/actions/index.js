@@ -51,6 +51,8 @@ export const deleteRow = (id) => async dispatch => {
     type: DELETE_ROW,
     payload: id
   });
+
+  history.push("/");
 };
 
 export const editRow = (id, formValues) => async dispatch => {

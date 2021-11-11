@@ -14,7 +14,7 @@ class RowList extends React.Component {
       return (
         <div>          
           <Link className="ui button" to={`/rows/edit/${row.id}`}>Edit</Link>          
-          <Link className="ui button" to="rows/delete">Delete</Link>         
+          <Link className="ui button" to={`/rows/delete/${row.id}`}>Delete</Link>         
         </div>        
       );
     };
@@ -29,7 +29,7 @@ class RowList extends React.Component {
     return this.props.rows.map((row) => {
       return (
         <div key={row.id} style={{backgroundColor: this.rgbaConvert(row)}}>
-          <div data-tooltip="test" data-position="left center">
+          <div>
             {row.plant}
             {this.userAuthorize(row)}
             <div className="ui divider"></div>      
