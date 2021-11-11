@@ -14,8 +14,8 @@ class RowList extends React.Component {
     if (row.userId === this.props.curUserId && this.props.curUserId) {
       return (
         <React.Fragment>          
-          <Link className="ui button right floated" to={`/rows/edit/${row.id}`}>Edit</Link>          
-          <Link className="ui button right floated" to={`/rows/delete/${row.id}`}>Delete</Link>         
+          <Link className="ui button right floated" to={`/rows/edit/${row.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
+          <Link className="ui button right floated" to={`/rows/delete/${row.id}`} style={{border: "1px black solid"}}>Delete</Link>         
         </React.Fragment>        
       );
     };
@@ -23,20 +23,27 @@ class RowList extends React.Component {
 
   rgbaConvert = (row) => {
     const {r, g, b, a} = row.color;
-    return `rgba(${r}, ${g}, ${b}, ${a})`;
+    // return `rgba(${r}, ${g}, ${b}, ${a})`;
+    return `linear-gradient(90deg, rgba(${r}, ${g}, ${b}, 0.5) 10%, rgba(${r}, ${g}, ${b}, ${a}), rgba(${r}, ${g}, ${b}, 0.5) 90%)`;
   }
 
   rowList() {    
     return this.props.rows.map((row) => {
       return (
         <div className="item" key={row.id}>          
-          <div className="content" style={{backgroundColor: this.rgbaConvert(row)}}>
-              <Link className="header" to={`/rows/${row.id}`}>{row.plant}</Link>
-              <div className="description">
-                {row.variety}
-                {this.userAuthorize(row)} 
-              </div>                      
-              <div className="ui divider"></div>                     
+          <div className="content" style={{
+            background: this.rgbaConvert(row),
+            border: "2px black solid",
+            marginBottom: "2rem",
+            borderRadius: "1rem",
+            padding: "1rem",
+            boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
+          }}>
+              <Link className="header" to={`/rows/${row.id}`} style={{fontSize: "1.3rem", fontWeight: "bold", marginLeft: "1rem"}}>{row.plant.toUpperCase()}</Link>
+              {this.userAuthorize(row)}
+              <div className="description" style={{marginLeft: "1rem"}}>
+                {row.variety[0].toUpperCase() + row.variety.slice(1).toLowerCase()}                 
+              </div>                               
           </div> 
         </div>                      
       );
@@ -46,7 +53,11 @@ class RowList extends React.Component {
   createRowButton = () => {
     if (this.props.isSignedIn) {
       return (
-        <div className="ui button right floated content" style={{textAlign: "right"}}>
+        <div className="ui button right floated content" style={{
+          textAlign: "right",
+          border: "1px black solid",
+          boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
+        }}>
           <Link to="/rows/new">Create Row</Link>
         </div>
       );
