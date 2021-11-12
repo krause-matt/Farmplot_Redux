@@ -27,16 +27,22 @@ class RowForm extends React.Component {
   };
 
   colorPicker = ({input, label, meta}) => {
-    const colorClass = (typeof(this.props.initialValues) != "undefined") ? this.props.initialValues.color : "#fff"
+    const colorClass = (typeof(this.props.initialValues) != "undefined") ? this.props.initialValues.color : (input.name === "colorBack") ? "#fff" : "#000"
     return (
       <div className="field">
         <label>{label}</label>
-        <SwatchesPicker color={colorClass} onChange={(color) => { this.props.change("color", color.rgb) }}/>
+        <SwatchesPicker color={colorClass} onChange={(color) => {this.props.change(input.name, color.rgb)}} />
       </div>
     );
   };
 
   onSubmit = (formValues) => {
+    if (typeof(formValues.colorBack) == "undefined") {
+      formValues.colorBack = {"r": 255, "g": 255, "b": 255, "a": 1}
+    }
+    if (typeof(formValues.colorText) == "undefined") {
+      formValues.colorText = {"r": 0, "g": 0, "b": 0, "a": 1}
+    }
     this.props.onSubmit(formValues)
   };
 
@@ -45,8 +51,11 @@ class RowForm extends React.Component {
       <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
         <Field name="plant" component={this.renderTextInput} label="Enter Plant" />
         <Field name="variety" component={this.renderTextInput} label="Enter Variety" />
-        <Field name="color" component={this.colorPicker} label="Choose Row Color" />
-        <button className="ui button teal">Submit</button>
+        <div className="ui grid" style={{padding: "2rem 0"}}>
+          <Field className="left floated" name="colorBack" component={this.colorPicker} label="Choose Row Color" />
+          <Field className="right floated" name="colorText" component={this.colorPicker} label="Choose Text Color" />
+        </div>        
+        <button className="ui button green">Submit</button>
       </form>
     );
   };

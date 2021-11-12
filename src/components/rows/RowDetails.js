@@ -5,7 +5,6 @@ import { getRow } from "../../actions/index";
 
 class RowDetails extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     this.props.getRow(this.props.match.params.id)
   };
 

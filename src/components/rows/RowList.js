@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { getRows } from "../../actions/index";
 import { Link } from "react-router-dom";
-import { RowDetails } from "./RowDetails";
 
 class RowList extends React.Component {
 
@@ -21,10 +20,14 @@ class RowList extends React.Component {
     };
   };
 
-  rgbaConvert = (row) => {
-    const {r, g, b, a} = row.color;
-    // return `rgba(${r}, ${g}, ${b}, ${a})`;
-    return `linear-gradient(90deg, rgba(${r}, ${g}, ${b}, 0.5) 10%, rgba(${r}, ${g}, ${b}, ${a}), rgba(${r}, ${g}, ${b}, 0.5) 90%)`;
+  rgbaBack = (row) => {
+    const {r, g, b, a} = row.colorBack;
+    return `linear-gradient(90deg, rgba(${r}, ${g}, ${b}, 0.75) 10%, rgba(${r}, ${g}, ${b}, ${a}), rgba(${r}, ${g}, ${b}, 0.75) 90%)`;
+  }
+
+  rgbaText = (row) => {
+    const {r, g, b, a} = row.colorText;
+    return `rgb(${r}, ${g}, ${b})`
   }
 
   rowList() {    
@@ -32,14 +35,20 @@ class RowList extends React.Component {
       return (
         <div className="item" key={row.id}>          
           <div className="content" style={{
-            background: this.rgbaConvert(row),
+            background: this.rgbaBack(row),
+            color: this.rgbaText(row),
             border: "2px black solid",
             marginBottom: "2rem",
             borderRadius: "1rem",
             padding: "1rem",
             boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
           }}>
-              <Link className="header" to={`/rows/${row.id}`} style={{fontSize: "1.3rem", fontWeight: "bold", marginLeft: "1rem"}}>{row.plant.toUpperCase()}</Link>
+              <Link className="header" to={`/rows/${row.id}`} style={{
+                color: this.rgbaText(row),
+                fontSize: "1.3rem",
+                fontWeight: "bold",
+                marginLeft: "1rem"
+              }}>{row.plant.toUpperCase()}</Link>
               {this.userAuthorize(row)}
               <div className="description" style={{marginLeft: "1rem"}}>
                 {row.variety[0].toUpperCase() + row.variety.slice(1).toLowerCase()}                 
@@ -54,12 +63,11 @@ class RowList extends React.Component {
     if (this.props.isSignedIn) {
       return (
         <div className="ui button right floated content" style={{
-          textAlign: "right",
           border: "1px black solid",
           boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
         }}>
           <Link to="/rows/new">Create Row</Link>
-        </div>
+        </div>        
       );
     };
   };
