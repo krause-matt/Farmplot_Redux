@@ -16,10 +16,26 @@ class RowDetails extends React.Component {
     const {plant, variety} = this.props.row;
 
     return (
-      <React.Fragment>
-        <h1>{plant}</h1>
-        <h3>{variety}</h3>
-      </React.Fragment>      
+      <div className="ui card centered">
+        <div class="image">
+          <img src={`https://source.unsplash.com/random/?${plant}`}/>
+        </div>
+        <div class="content">
+          <a class="header">{plant}</a>
+          <div class="meta">
+            <span class="date">{variety}</span>
+          </div>
+          <div class="description">
+            
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="leaf icon"></i>
+            Planted
+          </a>
+        </div>
+      </div> 
     );
   };  
 };
