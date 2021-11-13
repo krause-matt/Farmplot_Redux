@@ -5,8 +5,20 @@ import { Link } from "react-router-dom";
 
 
 class RowDetails extends React.Component {
+
   componentDidMount() {
     this.props.getRow(this.props.match.params.id)
+  };
+
+  userAuthorize = (row) => {
+    if (row.userId === this.props.currentUser && this.props.currentUser) {
+      return (
+        <React.Fragment>          
+          <Link className="circular ui button green" to={`/rows/edit/${row.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
+          <Link className="circular ui button red" to={`/rows/delete/${row.id}`} style={{border: "1px black solid"}}>Delete</Link>         
+        </React.Fragment>        
+      );
+    };
   };
 
   render() {
@@ -42,6 +54,13 @@ class RowDetails extends React.Component {
             {harvestDate === undefined ? "Harvest date not selected" : `Harvested : ${harvestDate}`}
           </div>
         </div>
+        <div className="extra content">
+          <div className="ui grid">
+            <div className="two wide row centered">
+              {this.userAuthorize(this.props.row)}
+            </div>            
+          </div>
+        </div>        
       </div> 
     );
   };  
@@ -49,7 +68,9 @@ class RowDetails extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    row: state.rows[ownProps.match.params.id]
+    row: state.rows[ownProps.match.params.id],
+    currentUser: state.auth.userId,
+    isSignedIn: state.auth.isSignedIn
   };
 }
 

@@ -1,20 +1,20 @@
 {
   "rows": [
     {
-      "plant": "carrot",
-      "variety": "orange",
+      "plant": "Carrot",
+      "variety": "Orange",
       "plantDate": "Wed Mar 10 2021",
       "harvestDate": "Sun Jul 04 2021",
       "colorBack": {
-        "r": 255,
-        "g": 152,
+        "r": 245,
+        "g": 124,
         "b": 0,
         "a": 1
       },
       "colorText": {
-        "r": 255,
-        "g": 255,
-        "b": 255,
+        "r": 0,
+        "g": 0,
+        "b": 0,
         "a": 1
       },
       "userId": "113298301759812333784",
