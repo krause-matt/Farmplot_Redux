@@ -1,6 +1,9 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { SwatchesPicker } from "react-color";
+import "react-widgets/styles.css";
+import { DatePicker } from "react-widgets";;
+
 
 
 class RowForm extends React.Component {
@@ -16,7 +19,7 @@ class RowForm extends React.Component {
   };
 
   renderTextInput = ({input, label, meta}) => {
-    const fieldClass = `field ${meta.error && meta.touched ? "error" : ""}`
+    const fieldClass = `field ${meta.error && meta.touched ? "error" : ""}`;
     return (
       <div className={fieldClass}>
         <label>{label}</label>
@@ -26,8 +29,8 @@ class RowForm extends React.Component {
     );
   };
 
-  colorPicker = ({input, label, meta}) => {
-    const colorClass = (typeof(this.props.initialValues) != "undefined") ? (input.name === "colorBack") ? this.props.initialValues.colorBack : this.props.initialValues.colorText : (input.name === "colorBack") ? "#fff" : "#000"
+  colorPicker = ({input, label}) => {
+    const colorClass = (typeof(this.props.initialValues) != "undefined") ? (input.name === "colorBack") ? this.props.initialValues.colorBack : this.props.initialValues.colorText : (input.name === "colorBack") ? "#fff" : "#000";
     return (
       <div className="field">
         <label>{label}</label>
@@ -35,6 +38,17 @@ class RowForm extends React.Component {
       </div>
     );
   };
+
+  datePicker = ({input, label}) => {
+    const dateClass = (typeof(this.props.initialValues) != "undefined") ? (input.name === "plantDate") ? (new Date(this.props.initialValues.plantDate)) : (new Date(this.props.initialValues.harvestDate)) : (input.name === "plantDate") ? null : null;
+    (typeof(this.props.initialValues) != "undefined") ? console.log(this.props.initialValues) : console.log("no initial values")
+    return (
+      <div className="field">
+        <label>{label}</label>
+        <DatePicker defaultValue={dateClass} onChange={(value) => {this.props.change(input.name, value.toDateString())}} />
+      </div>
+    )
+  }
 
   onSubmit = (formValues) => {
     if (typeof(formValues.colorBack) == "undefined") {
@@ -51,6 +65,8 @@ class RowForm extends React.Component {
       <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
         <Field name="plant" component={this.renderTextInput} label="Enter Plant" />
         <Field name="variety" component={this.renderTextInput} label="Enter Variety" />
+        <Field name="plantDate" component={this.datePicker} label="Date Planted" />
+        <Field name="harvestDate" component={this.datePicker} label="Date Harvested" />
         <div className="ui grid" style={{padding: "2rem 0"}}>
           <Field className="left floated" name="colorBack" component={this.colorPicker} label="Choose Row Color" />
           <Field className="right floated" name="colorText" component={this.colorPicker} label="Choose Text Color" />

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getRow } from "../../actions/index";
+import { Link } from "react-router-dom";
 
 
 class RowDetails extends React.Component {
@@ -13,7 +14,7 @@ class RowDetails extends React.Component {
       return <div>...Loading</div>;
     };
 
-    const {plant, variety} = this.props.row;
+    const {plant, variety, plantDate, harvestDate} = this.props.row;
 
     return (
       <div className="ui card centered">
@@ -32,13 +33,13 @@ class RowDetails extends React.Component {
         <div className="extra content">
           <div>
             <i className="calendar check outline icon"></i>
-            Planted
+            {plantDate === undefined ? "Planted date not selected" : `Planted : ${plantDate}`}
           </div>
         </div>
         <div className="extra content">
           <div>
             <i className="calendar check icon"></i>
-            Harvested
+            {harvestDate === undefined ? "Harvest date not selected" : `Harvested : ${harvestDate}`}
           </div>
         </div>
       </div> 
