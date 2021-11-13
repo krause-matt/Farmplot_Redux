@@ -1,4 +1,3 @@
-import { formValues } from "redux-form";
 import history from "../history";
 import rows from "../apis/rows"
 import { SIGN_IN, SIGN_OUT, CREATE_ROW, GET_ROWS, GET_ROW, DELETE_ROW, EDIT_ROW } from "./types";

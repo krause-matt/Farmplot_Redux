@@ -1,8 +1,8 @@
 {
   "rows": [
     {
-      "plant": "tomato",
-      "variety": "cherry",
+      "plant": "Tomato",
+      "variety": "Cherry",
       "colorBack": {
         "r": 183,
         "g": 28,
@@ -19,8 +19,8 @@
       "id": 1
     },
     {
-      "plant": "corn",
-      "variety": "yellow",
+      "plant": "Corn",
+      "variety": "Yellow",
       "colorBack": {
         "r": 255,
         "g": 241,
@@ -37,8 +37,44 @@
       "id": 2
     },
     {
-      "plant": "Eggplant",
-      "variety": "chinese",
+      "plant": "Garlic",
+      "variety": "Softneck",
+      "colorBack": {
+        "r": 255,
+        "g": 224,
+        "b": 178,
+        "a": 1
+      },
+      "colorText": {
+        "r": 93,
+        "g": 64,
+        "b": 55,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
+      "id": 3
+    },
+    {
+      "plant": "Kale",
+      "variety": "Lacinato",
+      "colorBack": {
+        "r": 56,
+        "g": 142,
+        "b": 60,
+        "a": 1
+      },
+      "colorText": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
+      "id": 5
+    },
+    {
+      "plant": "Onions",
+      "variety": "Red",
       "colorBack": {
         "r": 26,
         "g": 35,
@@ -52,7 +88,7 @@
         "a": 1
       },
       "userId": "113298301759812333784",
-      "id": 3
+      "id": 6
     }
   ]
 }

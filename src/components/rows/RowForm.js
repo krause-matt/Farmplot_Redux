@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, reduxForm, change } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { SwatchesPicker } from "react-color";
 
 
@@ -27,7 +27,7 @@ class RowForm extends React.Component {
   };
 
   colorPicker = ({input, label, meta}) => {
-    const colorClass = (typeof(this.props.initialValues) != "undefined") ? this.props.initialValues.color : (input.name === "colorBack") ? "#fff" : "#000"
+    const colorClass = (typeof(this.props.initialValues) != "undefined") ? (input.name === "colorBack") ? this.props.initialValues.colorBack : this.props.initialValues.colorText : (input.name === "colorBack") ? "#fff" : "#000"
     return (
       <div className="field">
         <label>{label}</label>

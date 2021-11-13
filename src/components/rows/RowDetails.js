@@ -17,23 +17,29 @@ class RowDetails extends React.Component {
 
     return (
       <div className="ui card centered">
-        <div class="image">
-          <img src={`https://source.unsplash.com/random/?${plant}`}/>
+        <div className="image">
+          <img src={`https://source.unsplash.com/random/?${plant}`} alt={plant}/>
         </div>
-        <div class="content">
-          <a class="header">{plant}</a>
-          <div class="meta">
-            <span class="date">{variety}</span>
+        <div className="content">
+          <div className="header">{plant}</div>
+          <div className="meta">
+            <span className="date">{variety}</span>
           </div>
-          <div class="description">
+          <div className="description">
             
           </div>
         </div>
-        <div class="extra content">
-          <a>
-            <i class="leaf icon"></i>
+        <div className="extra content">
+          <div>
+            <i className="calendar check outline icon"></i>
             Planted
-          </a>
+          </div>
+        </div>
+        <div className="extra content">
+          <div>
+            <i className="calendar check icon"></i>
+            Harvested
+          </div>
         </div>
       </div> 
     );

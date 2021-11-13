@@ -26,7 +26,7 @@ class RowList extends React.Component {
   }
 
   rgbaText = (row) => {
-    const {r, g, b, a} = row.colorText;
+    const {r, g, b} = row.colorText;
     return `rgb(${r}, ${g}, ${b})`
   }
 
