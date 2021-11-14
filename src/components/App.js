@@ -11,20 +11,23 @@ import history from "../history";
 
 const App = () => {
   return (
-    <div className="ui container">      
-      <Router history={history}>
-        <div>
-          <Header />
-            <Switch>     
-              <Route path="/rows/new" exact component={RowCreate} />                  
-              <Route path="/rows/delete/:id" exact component={RowDelete} />
-              <Route path="/rows/edit/:id" exact component={RowEdit} />
-              <Route path="/" exact component={RowList} />
-              <Route path="/rows/:id" exact component={RowDetails} />
-            </Switch>
-        </div>
-      </Router>
-    </div>    
+    <div>
+      <div className="ui container">      
+        <Router history={history}>
+          <div>
+            <Header />
+              <Switch>     
+                <Route path="/rows/new" exact component={RowCreate} />                  
+                <Route path="/rows/delete/:id" exact component={RowDelete} />
+                <Route path="/rows/edit/:id" exact component={RowEdit} />
+                <Route path="/" exact component={RowList} />
+                <Route path="/rows/:id" exact component={RowDetails} />
+              </Switch>
+          </div>
+        </Router>
+      </div> 
+    </div>
+       
   );
 };
 

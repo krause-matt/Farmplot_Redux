@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, formValues, reduxForm } from "redux-form";
 import { SwatchesPicker } from "react-color";
 import "react-widgets/styles.css";
 import { DatePicker } from "react-widgets";;
@@ -39,9 +39,8 @@ class RowForm extends React.Component {
     );
   };
 
-  datePicker = ({input, label}) => {
-    const dateClass = (typeof(this.props.initialValues) != "undefined") ? (input.name === "plantDate") ? (new Date(this.props.initialValues.plantDate)) : (new Date(this.props.initialValues.harvestDate)) : (input.name === "plantDate") ? null : null;
-    (typeof(this.props.initialValues) != "undefined") ? console.log(this.props.initialValues) : console.log("no initial values")
+  datePicker = ({input, label, meta}) => {
+    const dateClass = (typeof(this.props.initialValues) !== "undefined") ? (this.props.initialValues.plantDate && this.props.initialValues.plantDate !== "Invalid Date" && input.name === "plantDate") ? (new Date(this.props.initialValues.plantDate)) : (this.props.initialValues.harvestDate && this.props.initialValues.harvestDate !== "Invalid Date" && input.name === "harvestDate") ? (new Date(this.props.initialValues.harvestDate)) : null : null;
     return (
       <div className="field">
         <label>{label}</label>
@@ -52,11 +51,20 @@ class RowForm extends React.Component {
 
   onSubmit = (formValues) => {
     if (typeof(formValues.colorBack) == "undefined") {
-      formValues.colorBack = {"r": 255, "g": 255, "b": 255, "a": 1}
-    }
+      formValues.colorBack = {"r": 255, "g": 255, "b": 255, "a": 1};
+    };
     if (typeof(formValues.colorText) == "undefined") {
-      formValues.colorText = {"r": 0, "g": 0, "b": 0, "a": 1}
-    }
+      formValues.colorText = {"r": 0, "g": 0, "b": 0, "a": 1};
+    };
+    
+    const {plantDate, harvestDate} = formValues;
+    const start = new Date(plantDate);
+    const end = new Date(harvestDate);
+    if (plantDate && harvestDate && (start > end)) {
+      return (
+        alert("Planting date must be earlier than harvest date")
+      );
+    };
     this.props.onSubmit(formValues)
   };
 
@@ -67,9 +75,9 @@ class RowForm extends React.Component {
         <Field name="variety" component={this.renderTextInput} label="Enter Variety" />
         <Field name="plantDate" component={this.datePicker} label="Date Planted" />
         <Field name="harvestDate" component={this.datePicker} label="Date Harvested" />
-        <div className="ui grid" style={{padding: "2rem 0"}}>
-          <Field className="left floated" name="colorBack" component={this.colorPicker} label="Choose Row Color" />
-          <Field className="right floated" name="colorText" component={this.colorPicker} label="Choose Text Color" />
+        <div className="ui grid centered" style={{padding: "2rem 0"}}>
+          <Field name="colorBack" component={this.colorPicker} label="Choose Row Color" />
+          <Field name="colorText" component={this.colorPicker} label="Choose Text Color" />
         </div>        
         <button className="ui button green">Submit</button>
       </form>
