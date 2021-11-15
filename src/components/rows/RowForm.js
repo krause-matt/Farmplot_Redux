@@ -1,10 +1,8 @@
 import React from "react";
-import { Field, formValues, reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { SwatchesPicker } from "react-color";
 import "react-widgets/styles.css";
-import { DatePicker } from "react-widgets";;
-
-
+import { DatePicker } from "react-widgets";
 
 class RowForm extends React.Component {
 

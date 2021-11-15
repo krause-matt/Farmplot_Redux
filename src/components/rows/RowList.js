@@ -85,7 +85,7 @@ class RowList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    rows: Object.values(state.rows),
+    rows: Object.values(state.gardens),
     curUserId: state.auth.userId,
     isSignedIn: state.auth.isSignedIn
   };

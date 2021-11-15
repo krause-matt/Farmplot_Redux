@@ -1,62 +1,10 @@
 {
-  "rows": [
+  "gardens": [
     {
-      "plant": "Garlic",
-      "variety": "Softneck",
-      "plantDate": "Mon Nov 02 2020",
-      "harvestDate": "Thu Apr 01 2021",
-      "colorBack": {
-        "r": 255,
-        "g": 224,
-        "b": 178,
-        "a": 1
-      },
-      "colorText": {
-        "r": 0,
-        "g": 0,
-        "b": 0,
-        "a": 1
-      },
+      "gardenTitle": "test",
       "userId": "113298301759812333784",
-      "id": 6
-    },
-    {
-      "plant": "Carrot",
-      "variety": "Orange",
-      "colorBack": {
-        "r": 255,
-        "g": 183,
-        "b": 77,
-        "a": 1
-      },
-      "colorText": {
-        "r": 93,
-        "g": 64,
-        "b": 55,
-        "a": 1
-      },
-      "userId": "113298301759812333784",
-      "id": 7,
-      "plantDate": "Thu Apr 01 2021",
-      "harvestDate": "Tue Jun 01 2021"
-    },
-    {
-      "plant": "Tomato",
-      "variety": "Cherry",
-      "colorBack": {
-        "r": 183,
-        "g": 28,
-        "b": 28,
-        "a": 1
-      },
-      "colorText": {
-        "r": 255,
-        "g": 255,
-        "b": 255,
-        "a": 1
-      },
-      "userId": "113298301759812333784",
-      "id": 8
+      "id": 1,
+      "rows": []
     }
   ]
 }

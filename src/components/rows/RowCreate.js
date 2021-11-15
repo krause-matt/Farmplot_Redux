@@ -6,7 +6,7 @@ import RowForm from "./RowForm";
 class RowCreate extends React.Component {
 
   onSubmit = (formValues) => {
-    this.props.createRow(formValues)
+    this.props.createRow(this.props.match.params.id, formValues)
   };
 
   render() {
@@ -19,4 +19,10 @@ class RowCreate extends React.Component {
   };
 };
 
-export default connect(null, {createRow})(RowCreate)
+const mapStateToProps = (state) => {
+  return {
+    gardens: Object.values(state.gardens)
+  }
+}
+
+export default connect(mapStateToProps, {createRow})(RowCreate)
