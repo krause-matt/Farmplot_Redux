@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getGarden, editGarden } from "../../actions/index";
-import RowForm from "./RowForm";
+import GardenForm from "./GardenForm";
 import _ from "lodash";
 
 class GardenEdit extends React.Component {
@@ -21,7 +21,7 @@ class GardenEdit extends React.Component {
     return (
       <div>
         <h3>Edit Garden</h3>
-        <RowForm initialValues={_.pick(this.props.garden, "garden")} onSubmit={this.onSubmit} />
+        <GardenForm initialValues={_.pick(this.props.garden, "gardenTitle")} onSubmit={this.onSubmit} />
       </div>      
     );
   }  

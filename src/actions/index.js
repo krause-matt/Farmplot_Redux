@@ -18,7 +18,7 @@ export const signOut = () => {
 //asynchronous action creators - ROWS
 export const createRow = (id, formValues) => async (dispatch, getState) => {
   const { userId } = getState().auth;
-  const response = await rows.post(`gardens/${id}/rows`, {...formValues, userId});
+  const response = await rows.post(`/gardens/${id}/rows`, {...formValues, userId});
 
   dispatch({
     type: CREATE_ROW,
@@ -30,7 +30,7 @@ export const createRow = (id, formValues) => async (dispatch, getState) => {
 };
 
 export const getRows = () => async dispatch => {
-  const response = await rows.get("/gardens");
+  const response = await rows.get("/rows");
   dispatch({
     type: GET_ROWS,
     payload: response.data
@@ -38,7 +38,7 @@ export const getRows = () => async dispatch => {
 };
 
 export const getRow = (id) => async dispatch => {
-  const response = await rows.get(`/gardens/${id}`);
+  const response = await rows.get(`/rows/${id}`);
   dispatch({
     type: GET_ROW,
     payload: response.data

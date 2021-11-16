@@ -1,5 +1,6 @@
 import {CREATE_GARDEN, GET_GARDENS, GET_GARDEN, DELETE_GARDEN, EDIT_GARDEN, CREATE_ROW} from "../actions/types";
 import _ from "lodash";
+import rowReducer from "./rowReducer";
 
 export default (state={}, action) => {
   switch(action.type) {
@@ -10,7 +11,7 @@ export default (state={}, action) => {
     case CREATE_GARDEN:
       return {...state, [action.payload.id]: action.payload};
     case CREATE_ROW:
-      return {...state, [action.id]: [action.payload.id].action.payload}
+      return {...state, row: rowReducer(state.rows, action)}
     case EDIT_GARDEN:
       return {...state, [action.payload.id]: action.payload};
     case DELETE_GARDEN:

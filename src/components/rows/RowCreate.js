@@ -19,10 +19,5 @@ class RowCreate extends React.Component {
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-    gardens: Object.values(state.gardens)
-  }
-}
 
-export default connect(mapStateToProps, {createRow})(RowCreate)
+export default connect(null, {createRow})(RowCreate)

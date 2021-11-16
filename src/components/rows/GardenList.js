@@ -13,8 +13,8 @@ class GardenList extends React.Component {
     if (garden.userId === this.props.curUserId && this.props.curUserId) {
       return (
         <React.Fragment>          
-          <Link className="ui button right floated" to={`/rows/edit/${garden.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
-          <Link className="ui button right floated" to={`/rows/delete/${garden.id}`} style={{border: "1px black solid"}}>Delete</Link>         
+          <Link className="ui button right floated" to={`/gardens/edit/${garden.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
+          <Link className="ui button right floated" to={`/gardens/delete/${garden.id}`} style={{border: "1px black solid"}}>Delete</Link>         
         </React.Fragment>        
       );
     };
@@ -35,7 +35,7 @@ class GardenList extends React.Component {
                 fontSize: "1.3rem",
                 fontWeight: "bold",
                 marginLeft: "1rem"
-              }}>Garden</Link>
+              }}>{garden.gardenTitle}</Link>
               {this.userAuthorize(garden)}
               <div className="description" style={{marginLeft: "1rem"}}>
                 Garden                 

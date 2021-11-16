@@ -1,9 +1,15 @@
 {
   "gardens": [
     {
-      "gardenTitle": "test",
+      "gardenTitle": "test1",
       "userId": "113298301759812333784",
       "id": 1,
+      "rows": []
+    },
+    {
+      "gardenTitle": "test2",
+      "userId": "113298301759812333784",
+      "id": 2,
       "rows": []
     }
   ]

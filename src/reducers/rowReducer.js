@@ -8,7 +8,7 @@ export default (state={}, action) => {
     case GET_ROW:
       return {...state, [action.payload.id]: action.payload};
     case CREATE_ROW:
-      return {...state, garden: {[action.payload.id]: action.payload}};
+      return {...state, [action.payload.id]: action.payload};
     case EDIT_ROW:
       return {...state, [action.payload.id]: action.payload};
     case DELETE_ROW:

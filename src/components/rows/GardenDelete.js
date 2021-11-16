@@ -22,10 +22,10 @@ class GardenDelete extends React.Component {
   };
 
   deleteMessage() {
-    if (!this.props.row) {
+    if (!this.props.garden) {
       return "Are you sure you would like to delete this Garden?";
     } else {
-      return `Are you sure you would like to delete the ${this.props.garden} row?`;
+      return `Are you sure you would like to delete the ${this.props.garden.gardenTitle} row?`;
     };
   };
   
