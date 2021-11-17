@@ -7,5 +7,6 @@ import rowReducer from "./rowReducer";
 export default combineReducers({
   auth: googleAuthReducer,
   form: formReducer,
-  gardens: gardenReducer
+  gardens: gardenReducer,
+  rows: rowReducer
 });

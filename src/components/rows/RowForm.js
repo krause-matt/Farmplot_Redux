@@ -48,6 +48,10 @@ class RowForm extends React.Component {
   }
 
   onSubmit = (formValues) => {
+    const gardenNum = (window.location.pathname).split(`/`)[2];
+
+    formValues.gardenNum = gardenNum;
+
     if (typeof(formValues.colorBack) == "undefined") {
       formValues.colorBack = {"r": 255, "g": 255, "b": 255, "a": 1};
     };
@@ -67,6 +71,9 @@ class RowForm extends React.Component {
   };
 
   render() {
+    // let gardenNum = (window.location.pathname).split(`/`)[2];
+    // console.log(gardenNum);
+
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
         <Field name="plant" component={this.renderTextInput} label="Enter Plant" />

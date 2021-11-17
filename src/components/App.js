@@ -24,12 +24,13 @@ const App = () => {
                 <Route path="/" exact component={GardenList} />
                 <Route path="/gardens/new" exact component={GardenCreate} /> 
                 <Route path="/gardens/:id/rows" exact component={RowList} />                                 
+                <Route path="/rows/new" exact component={RowCreate} />                  
                 <Route path="/gardens/:id/rows/new" exact component={RowCreate} />                  
                 <Route path="/gardens/delete/:id" exact component={GardenDelete} />
-                <Route path="/gardens/:id/rows/delete/:id" exact component={RowDelete} />
+                <Route path="/rows/delete/:id" exact component={RowDelete} />
                 <Route path="/gardens/edit/:id" exact component={GardenEdit} />
-                <Route path="/gardens/:id/rows/edit/:id" exact component={RowEdit} />                
-                <Route path="/gardens/:id/rows/:id" exact component={RowDetails} />
+                <Route path="/rows/edit/:id" exact component={RowEdit} />                
+                <Route path="rows/:id" exact component={RowDetails} />
               </Switch>
           </div>
         </Router>

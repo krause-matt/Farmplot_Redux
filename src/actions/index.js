@@ -18,7 +18,7 @@ export const signOut = () => {
 //asynchronous action creators - ROWS
 export const createRow = (id, formValues) => async (dispatch, getState) => {
   const { userId } = getState().auth;
-  const response = await rows.post(`/gardens/${id}/rows`, {...formValues, userId});
+  const response = await rows.post(`/rows`, {...formValues, userId});
 
   dispatch({
     type: CREATE_ROW,
