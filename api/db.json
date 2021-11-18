@@ -1,4 +1,118 @@
 {
-  "gardens": [],
-  "rows": []
+  "gardens": [
+    {
+      "gardenTitle": "Matt's Garden",
+      "userId": "113298301759812333784",
+      "id": 1
+    },
+    {
+      "gardenTitle": "Rod's Garden",
+      "userId": "113298301759812333784",
+      "id": 2
+    },
+    {
+      "gardenTitle": "Test",
+      "userId": "113298301759812333784",
+      "id": 3
+    }
+  ],
+  "rows": [
+    {
+      "plant": "Tomato",
+      "variety": "Cherry",
+      "colorBack": {
+        "r": 183,
+        "g": 28,
+        "b": 28,
+        "a": 1
+      },
+      "colorText": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 1
+      },
+      "gardenNum": "1",
+      "userId": "113298301759812333784",
+      "id": 1
+    },
+    {
+      "plant": "Corn",
+      "variety": "Yellow",
+      "colorBack": {
+        "r": 255,
+        "g": 235,
+        "b": 59,
+        "a": 1
+      },
+      "gardenNum": "1",
+      "colorText": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
+      "id": 2
+    },
+    {
+      "plant": "Eggplant",
+      "variety": "Chinese",
+      "plantDate": "Mon Aug 23 2021",
+      "harvestDate": "Tue Nov 23 2021",
+      "colorBack": {
+        "r": 26,
+        "g": 35,
+        "b": 126,
+        "a": 1
+      },
+      "colorText": {
+        "r": 174,
+        "g": 213,
+        "b": 129,
+        "a": 1
+      },
+      "gardenNum": "1",
+      "userId": "113298301759812333784",
+      "id": 3
+    },
+    {
+      "plant": "Garlic",
+      "variety": "Softneck",
+      "colorBack": {
+        "r": 255,
+        "g": 236,
+        "b": 179,
+        "a": 1
+      },
+      "gardenNum": "new",
+      "colorText": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
+      "id": 4
+    },
+    {
+      "plant": "test",
+      "variety": "test",
+      "gardenNum": "3",
+      "colorBack": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 1
+      },
+      "colorText": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 1
+      },
+      "userId": "113298301759812333784",
+      "id": 5
+    }
+  ]
 }

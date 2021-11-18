@@ -49,6 +49,7 @@ class RowForm extends React.Component {
 
   onSubmit = (formValues) => {
     const gardenNum = (window.location.pathname).split(`/`)[2];
+    console.log(`gardenNum = ${gardenNum}`)
 
     formValues.gardenNum = gardenNum;
 
@@ -71,9 +72,6 @@ class RowForm extends React.Component {
   };
 
   render() {
-    // let gardenNum = (window.location.pathname).split(`/`)[2];
-    // console.log(gardenNum);
-
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
         <Field name="plant" component={this.renderTextInput} label="Enter Plant" />

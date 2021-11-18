@@ -26,7 +26,7 @@ export const createRow = (id, formValues) => async (dispatch, getState) => {
     id: id
   });
 
-  history.push("/");
+  history.push(`/gardens/${id}/rows`);
 };
 
 export const getRows = () => async dispatch => {

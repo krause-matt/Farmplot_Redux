@@ -7,11 +7,8 @@ const Header = () => {
     <div className="ui inverted segment">
       <div className="ui inverted secondary menu">
         <div className="active item">
-          <Link to="/">Home</Link>
+          <Link to="/">Gardens</Link>
         </div>
-        <div className="item">
-          <Link to="/rows/new">New</Link>
-        </div>        
         <div className="right item">
           <div className="item">
             <GoogleAuth />

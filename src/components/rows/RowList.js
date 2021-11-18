@@ -60,13 +60,15 @@ class RowList extends React.Component {
   };
 
   createRowButton = () => {
+    const gardenNum = (window.location.pathname).split(`/`)[2];
+
     if (this.props.isSignedIn) {
       return (
         <div className="ui button right floated content" style={{
           border: "1px black solid",
           boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
         }}>
-          <Link to="/rows/new">Create Row</Link>
+          <Link to={`/gardens/${gardenNum}/rows/new`}>Plant Item</Link>
         </div>        
       );
     };

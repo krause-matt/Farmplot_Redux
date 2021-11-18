@@ -12,11 +12,10 @@ class GardenList extends React.Component {
   userAuthorize = (garden) => {
     if (garden.userId === this.props.curUserId && this.props.curUserId) {
       return (
-        <React.Fragment>          
-                    
+        <React.Fragment>                    
           <Link className="ui button right floated" to={`/gardens/edit/${garden.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
           <Link className="ui button right floated" to={`/gardens/delete/${garden.id}`} style={{border: "1px black solid"}}>Delete</Link>
-          <Link className="ui button right floated" to={`/gardens/${garden.id}/rows/new`} style={{border: "1px black solid", marginRight: "3rem"}}>Add Row</Link>        
+          <Link className="ui button right floated" to={`/gardens/${garden.id}/rows/new`} style={{border: "1px black solid", marginRight: "3rem"}}>Plant Item</Link>        
         </React.Fragment>        
       );
     };
