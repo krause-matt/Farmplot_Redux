@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "../Modal";
 import history from "../../history";
 import { connect } from "react-redux";
-import { getGarden, deleteGarden } from "../../actions/index";
+import { getGarden, deleteGarden, deleteRow } from "../../actions/index";
 import { Link } from "react-router-dom";
 
 
@@ -12,10 +12,32 @@ class GardenDelete extends React.Component {
     this.props.getGarden(this.props.match.params.id);
   };
 
+  deleteAll = () => {
+    this.props.deleteGarden(this.props.match.params.id);
+    console.log(this.props.rows)
+    const rowDel = this.props.rows.filter(row => row.gardenNum === this.props.match.params.id)
+    console.log(rowDel)
+    let ids = [];
+    rowDel.forEach(function(row) {
+      ids.push(row.id)
+    })
+    this.props.deleteRow(ids[0])
+    this.props.deleteRow(ids[1])
+  }
+
+  // actions() {
+  //   return (
+  //     <React.Fragment>
+  //       <button onClick={() => this.props.deleteGarden(this.props.match.params.id)} className="ui button negative">Delete</button>
+  //       <Link className="ui button" to="/">Cancel</Link>
+  //     </React.Fragment>
+  //   );
+  // };
+
   actions() {
     return (
       <React.Fragment>
-        <button onClick={() => this.props.deleteGarden(this.props.match.params.id)} className="ui button negative">Delete</button>
+        <button onClick={() => this.deleteAll()} className="ui button negative">Delete</button>
         <Link className="ui button" to="/">Cancel</Link>
       </React.Fragment>
     );
@@ -25,7 +47,7 @@ class GardenDelete extends React.Component {
     if (!this.props.garden) {
       return "Are you sure you would like to delete this Garden?";
     } else {
-      return `Are you sure you would like to delete the ${this.props.garden.gardenTitle} row?`;
+      return `Are you sure you would like to delete ${this.props.garden.gardenTitle} and all its contents?`;
     };
   };
   
@@ -43,8 +65,9 @@ class GardenDelete extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    garden: state.gardens[ownProps.match.params.id]
+    garden: state.gardens[ownProps.match.params.id],
+    rows: Object.values(state.rows)
   }    
 }
 
-export default connect(mapStateToProps, {getGarden, deleteGarden})(GardenDelete);
+export default connect(mapStateToProps, {getGarden, deleteGarden, deleteRow})(GardenDelete);

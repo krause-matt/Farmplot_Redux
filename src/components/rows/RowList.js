@@ -30,8 +30,11 @@ class RowList extends React.Component {
     return `rgb(${r}, ${g}, ${b})`
   }
 
-  rowList() {    
-    return this.props.rows.map((row) => {
+  rowList() {
+    const gardenNum = (window.location.pathname).split(`/`)[2];
+    const currentGarden = this.props.rows.filter(row => row.gardenNum == gardenNum)
+
+    return currentGarden.map((row) => {
       return (
         <div className="item" key={row.id}>          
           <div className="content" style={{

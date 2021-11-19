@@ -55,6 +55,16 @@ export const deleteRow = (id) => async dispatch => {
   history.push("/");
 };
 
+export const deleteRowByGarden = (id) => async dispatch => {
+  await rows.delete(`/rows/${id}`);
+  dispatch({
+    type: DELETE_ROW,
+    payload: id
+  });
+
+  history.push("/");
+};
+
 export const editRow = (id, formValues) => async dispatch => {
   const response = await rows.patch(`/rows/${id}`, formValues);
   dispatch({

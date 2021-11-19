@@ -72,7 +72,6 @@ class GardenList extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     gardens: Object.values(state.gardens),
     curUserId: state.auth.userId,

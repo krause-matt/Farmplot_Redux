@@ -49,7 +49,6 @@ class RowForm extends React.Component {
 
   onSubmit = (formValues) => {
     const gardenNum = (window.location.pathname).split(`/`)[2];
-    console.log(`gardenNum = ${gardenNum}`)
 
     formValues.gardenNum = gardenNum;
 
