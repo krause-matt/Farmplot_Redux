@@ -21,8 +21,7 @@ class GardenDelete extends React.Component {
     rowDel.forEach(function(row) {
       ids.push(row.id)
     })
-    this.props.deleteRow(ids[0])
-    this.props.deleteRow(ids[1])
+    //this.props.deleteRow(5)
   }
 
   // actions() {

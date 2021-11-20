@@ -51,8 +51,6 @@ export const deleteRow = (id) => async dispatch => {
     type: DELETE_ROW,
     payload: id
   });
-
-  history.push("/");
 };
 
 export const deleteRowByGarden = (id) => async dispatch => {
