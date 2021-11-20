@@ -4,6 +4,11 @@
       "gardenTitle": "Matt's Garden",
       "userId": "113298301759812333784",
       "id": 1
+    },
+    {
+      "gardenTitle": "test",
+      "userId": "113298301759812333784",
+      "id": 2
     }
   ],
   "rows": [
