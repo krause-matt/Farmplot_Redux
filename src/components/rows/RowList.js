@@ -32,9 +32,9 @@ class RowList extends React.Component {
 
   rowList() {
     const gardenNum = (window.location.pathname).split(`/`)[2];
-    const currentGarden = this.props.rows.filter(row => row.gardenNum == gardenNum)
+    const currentGardenRow = this.props.rows.filter(row => row.gardenNum == gardenNum)
 
-    return currentGarden.map((row) => {
+    return currentGardenRow.map((row) => {
       return (
         <div className="item" key={row.id}>          
           <div className="content" style={{
@@ -78,8 +78,10 @@ class RowList extends React.Component {
   };
   
   render() {
+    const currentGarden = this.props.gardens.filter(garden => garden.id == this.props.match.params.id);
     return (
     <div>
+      <h1>{currentGarden[0].gardenTitle}</h1>
       {this.rowList()}
       {this.createRowButton()}    
     </div>
@@ -90,6 +92,7 @@ class RowList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    gardens: Object.values(state.gardens),
     rows: Object.values(state.rows),
     curUserId: state.auth.userId,
     isSignedIn: state.auth.isSignedIn

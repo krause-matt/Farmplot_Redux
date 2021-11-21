@@ -52,12 +52,6 @@ export const deleteRow = (id) => async dispatch => {
     payload: id
   });
 
-  // const response = await rows.get(`/rows/`);
-  // dispatch({
-  //   type: GET_ROW,
-  //   payload: response.data
-  // });
-
   history.push("/");
 };
 

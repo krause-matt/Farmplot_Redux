@@ -13,39 +13,19 @@ class GardenDelete extends React.Component {
   };
 
   deleteAll = () => {
-    //this.props.deleteGarden(this.props.match.params.id);
-    //console.log(this.props.rows)
-    // const rowDel = this.props.rows.filter(row => row.gardenNum === this.props.match.params.id)
-    // //console.log(rowDel)
-    // let ids = [];
-    // rowDel.forEach(function(row) {
-    //   ids.push(row.id)
-    // })
-    // for (let i = ids.length, j = 0, k = Promise.resolve(); i > 0; i--, j++) {
-    //   k = k.then(this.props.deleteRow(ids[j])).catch(null)
-    // }
+    const thisGardenRowList = this.props.rows.filter(row => row.gardenNum === this.props.match.params.id);
+    let gardenRowListIds = [];
+    thisGardenRowList.forEach(function(row) {
+      gardenRowListIds.push(row.id);
+    });
 
-    // //CODE BELOW WORKS SOMETIMES **FOUND ROOT CAUSE - JSON-SERVER ONLY ALLOWS 3 DELETE REQ's PER SEC
-    // //this.props.deleteGarden(this.props.match.params.id)
-    // (this.props.deleteRow(4))
-    // .then(this.props.deleteRow(5))
-    // .then(this.props.deleteRow(6))
-    // .catch(console.log("error"))
-
-    // this.props.deleteRow(4)
-    // // CODE BELOW WORKING (ONLY WITH 3 OR FEWER ROWS)
-    Promise.all([this.props.deleteRow(4), this.props.deleteRow(5), this.props.deleteRow(6), this.props.deleteRow(7)])
-
+    if (gardenRowListIds.length > 1) {
+      for (let i = gardenRowListIds.length, j = 0; j < i; j++) {
+        this.props.deleteRow(gardenRowListIds[j]);
+      };
+    }
+    this.props.deleteGarden(this.props.match.params.id);
   }
-
-  // actions() {
-  //   return (
-  //     <React.Fragment>
-  //       <button onClick={() => this.props.deleteGarden(this.props.match.params.id)} className="ui button negative">Delete</button>
-  //       <Link className="ui button" to="/">Cancel</Link>
-  //     </React.Fragment>
-  //   );
-  // };
 
   actions() {
     return (
