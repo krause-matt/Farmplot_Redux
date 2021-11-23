@@ -21,28 +21,62 @@ class GardenList extends React.Component {
     };
   };
 
-  gardenList() {    
+  // gardenList() {    
+  //   return this.props.gardens.map((garden) => {
+  //     return (
+  //       <div className="item" key={garden.id}>          
+  //         <div className="content" style={{
+  //           border: "2px black solid",
+  //           marginBottom: "2rem",
+  //           borderRadius: "1rem",
+  //           padding: "1rem",
+  //           boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
+  //         }}>
+  //             <Link className="header" to={`/gardens/${garden.id}/rows`} style={{
+  //               fontSize: "1.3rem",
+  //               fontWeight: "bold",
+  //               marginLeft: "1rem"
+  //             }}>{garden.gardenTitle}</Link>
+  //             {this.userAuthorize(garden)}
+  //             <div className="description" style={{marginLeft: "1rem"}}>
+  //               Garden                 
+  //             </div>                               
+  //         </div> 
+  //       </div>                      
+  //     );
+  //   });
+  // };
+
+  gardenList() {
     return this.props.gardens.map((garden) => {
       return (
-        <div className="item" key={garden.id}>          
-          <div className="content" style={{
-            border: "2px black solid",
-            marginBottom: "2rem",
-            borderRadius: "1rem",
-            padding: "1rem",
-            boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
+        <div className="card" key={garden.id}>
+          <div className="center aligned header" style={{
+            fontSize: "1.4rem",
+            fontWeight: "bold",
+            margin: "2rem"
           }}>
-              <Link className="header" to={`/gardens/${garden.id}/rows`} style={{
-                fontSize: "1.3rem",
-                fontWeight: "bold",
-                marginLeft: "1rem"
-              }}>{garden.gardenTitle}</Link>
-              {this.userAuthorize(garden)}
-              <div className="description" style={{marginLeft: "1rem"}}>
-                Garden                 
-              </div>                               
-          </div> 
-        </div>                      
+            <Link to={`/gardens/${garden.id}/rows`} style={{
+              color: "black"
+            }}>
+              {garden.gardenTitle}
+            </Link>
+          </div>          
+          <div className="extra content">
+            <div className="ui bottom attached green button">
+              <i className="leaf icon"></i>
+              Plant
+            </div>
+            <div className="ui bottom attached button">
+              <i className="edit icon"></i>
+              Edit
+            </div>
+            <div className="ui bottom attached button">
+              <i className="trash alternate icon"></i>
+              Delete
+            </div>
+          </div>
+        </div>            
       );
     });
   };
@@ -50,9 +84,10 @@ class GardenList extends React.Component {
   createGardenButton = () => {
     if (this.props.isSignedIn) {
       return (
-        <div className="ui button right floated content" style={{
+        <div className="ui button left floated content" style={{
           border: "1px black solid",
-          boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
+          boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)",
+          marginTop: "2rem"
         }}>
           <Link to="/gardens/new">Create Garden</Link>
         </div>        
@@ -60,12 +95,24 @@ class GardenList extends React.Component {
     };
   };
   
+  // render() {
+  //   return (
+  //   <div>
+  //     {this.gardenList()}
+  //     {this.createGardenButton()}    
+  //   </div>
+  //   );
+  // };
+
   render() {
     return (
     <div>
-      {this.gardenList()}
-      {this.createGardenButton()}    
+      <div className="ui special cards">
+        {this.gardenList()}       
+      </div>
+      {this.createGardenButton()} 
     </div>
+    
     );
   };
   

@@ -6,9 +6,19 @@
       "id": 1
     },
     {
-      "gardenTitle": "tewt",
+      "gardenTitle": "Julie",
       "userId": "113298301759812333784",
       "id": 2
+    },
+    {
+      "gardenTitle": "Mom",
+      "userId": "113298301759812333784",
+      "id": 3
+    },
+    {
+      "gardenTitle": "Dad",
+      "userId": "113298301759812333784",
+      "id": 4
     }
   ],
   "rows": [
@@ -74,25 +84,6 @@
       "gardenNum": "1",
       "userId": "113298301759812333784",
       "id": 9
-    },
-    {
-      "plant": "wet",
-      "variety": "asef",
-      "colorBack": {
-        "r": 255,
-        "g": 235,
-        "b": 59,
-        "a": 1
-      },
-      "colorText": {
-        "r": 244,
-        "g": 67,
-        "b": 54,
-        "a": 1
-      },
-      "gardenNum": "2",
-      "userId": "113298301759812333784",
-      "id": 10
     }
   ]
 }
