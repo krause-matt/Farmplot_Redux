@@ -107,7 +107,7 @@ class GardenList extends React.Component {
   render() {
     return (
     <div>
-      <div className="ui special cards">
+      <div className="ui four cards">
         {this.gardenList()}       
       </div>
       {this.createGardenButton()} 

@@ -11,10 +11,11 @@ class RowDetails extends React.Component {
   };
 
   userAuthorize = (row) => {
+    const gardenNum = (window.location.pathname).split(`/`)[2];
     if (row.userId === this.props.currentUser && this.props.currentUser) {
       return (
         <React.Fragment>          
-          <Link className="circular ui button green" to={`/rows/edit/${row.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
+          <Link className="circular ui button green" to={`/gardens/${gardenNum}/rows/edit/${row.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
           <Link className="circular ui button red" to={`/rows/delete/${row.id}`} style={{border: "1px black solid"}}>Delete</Link>         
         </React.Fragment>        
       );

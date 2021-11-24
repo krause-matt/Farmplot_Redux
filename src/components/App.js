@@ -30,8 +30,8 @@ const App = () => {
                 <Route path="/gardens/delete/:id" exact component={GardenDelete} />
                 <Route path="/rows/delete/:id" exact component={RowDelete} />
                 <Route path="/gardens/edit/:id" exact component={GardenEdit} />
-                <Route path="/rows/edit/:id" exact component={RowEdit} />                
-                <Route path="rows/:id" exact component={RowDetails} />
+                <Route path="/gardens/:id/rows/edit/:id" exact component={RowEdit} />                
+                <Route path="/gardens/:id/rows/:id" exact component={RowDetails} />
               </Switch>
           </div>
         </Router>

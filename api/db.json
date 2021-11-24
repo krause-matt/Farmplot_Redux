@@ -25,12 +25,12 @@
     {
       "plant": "Tomato",
       "variety": "Cherry",
-      "plantDate": "Thu Apr 01 2021",
-      "harvestDate": "Sun Aug 01 2021",
+      "plantDate": "Sun Apr 04 2021",
+      "harvestDate": "Mon Aug 23 2021",
       "colorBack": {
-        "r": 183,
-        "g": 28,
-        "b": 28,
+        "r": 211,
+        "g": 47,
+        "b": 47,
         "a": 1
       },
       "colorText": {
@@ -65,20 +65,20 @@
       "id": 8
     },
     {
-      "plant": "Pepper",
-      "variety": "Green Bell",
-      "plantDate": "Tue Apr 20 2021",
-      "harvestDate": "Fri Aug 20 2021",
+      "plant": "Cucumber",
+      "variety": "English",
+      "plantDate": "Sat Apr 17 2021",
+      "harvestDate": "Sat Jul 31 2021",
       "colorBack": {
-        "r": 56,
-        "g": 142,
-        "b": 60,
+        "r": 174,
+        "g": 213,
+        "b": 129,
         "a": 1
       },
       "colorText": {
-        "r": 255,
-        "g": 255,
-        "b": 255,
+        "r": 51,
+        "g": 105,
+        "b": 30,
         "a": 1
       },
       "gardenNum": "1",
