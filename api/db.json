@@ -47,7 +47,7 @@
       "plant": "Corn",
       "variety": "Yellow",
       "plantDate": "Thu Apr 15 2021",
-      "harvestDate": "Thu Jul 15 2021",
+      "harvestDate": "Tue Jul 20 2021",
       "colorBack": {
         "r": 255,
         "g": 235,
@@ -67,7 +67,7 @@
     {
       "plant": "Cucumber",
       "variety": "English",
-      "plantDate": "Sat Apr 17 2021",
+      "plantDate": "Thu Apr 01 2021",
       "harvestDate": "Sat Jul 31 2021",
       "colorBack": {
         "r": 174,
