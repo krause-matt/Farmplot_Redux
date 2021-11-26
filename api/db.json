@@ -1,7 +1,7 @@
 {
   "gardens": [
     {
-      "gardenTitle": "Matt's Garden",
+      "gardenTitle": "Matt",
       "userId": "113298301759812333784",
       "id": 1
     },
@@ -14,11 +14,6 @@
       "gardenTitle": "Mom",
       "userId": "113298301759812333784",
       "id": 3
-    },
-    {
-      "gardenTitle": "Dad",
-      "userId": "113298301759812333784",
-      "id": 4
     }
   ],
   "rows": [
@@ -84,6 +79,25 @@
       "gardenNum": "1",
       "userId": "113298301759812333784",
       "id": 9
+    },
+    {
+      "plant": "Eggplant",
+      "variety": "Chinese",
+      "colorBack": {
+        "r": 136,
+        "g": 14,
+        "b": 79,
+        "a": 1
+      },
+      "colorText": {
+        "r": 217,
+        "g": 217,
+        "b": 217,
+        "a": 1
+      },
+      "gardenNum": "2",
+      "userId": "113298301759812333784",
+      "id": 10
     }
   ]
 }
