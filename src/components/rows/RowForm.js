@@ -1,10 +1,8 @@
 import React from "react";
-import { Field, formValues, reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { SwatchesPicker } from "react-color";
 import "react-widgets/styles.css";
-import { DatePicker } from "react-widgets";;
-
-
+import { DatePicker } from "react-widgets";
 
 class RowForm extends React.Component {
 
@@ -50,6 +48,10 @@ class RowForm extends React.Component {
   }
 
   onSubmit = (formValues) => {
+    const gardenNum = (window.location.pathname).split(`/`)[2];
+
+    formValues.gardenNum = gardenNum;
+
     if (typeof(formValues.colorBack) == "undefined") {
       formValues.colorBack = {"r": 255, "g": 255, "b": 255, "a": 1};
     };

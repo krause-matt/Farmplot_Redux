@@ -12,7 +12,8 @@ class RowEdit extends React.Component {
   }
 
   onSubmit = (formValues) => {
-    this.props.editRow(this.props.match.params.id, formValues)
+    const gardenNum = (window.location.pathname).split(`/`)[2];
+    this.props.editRow(this.props.match.params.id, formValues, gardenNum)
   };
 
   render() {

@@ -1,22 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getRows } from "../../actions/index";
+import { getRows, getGardens} from "../../actions/index";
 import { Link } from "react-router-dom";
 
 class RowList extends React.Component {
 
   componentDidMount() {
     this.props.getRows();
+    this.props.getGardens();
   };
 
   userAuthorize = (row) => {
     if (row.userId === this.props.curUserId && this.props.curUserId) {
-      return (
-        <React.Fragment>          
-          <Link className="ui button right floated" to={`/rows/edit/${row.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
-          <Link className="ui button right floated" to={`/rows/delete/${row.id}`} style={{border: "1px black solid"}}>Delete</Link>         
-        </React.Fragment>        
-      );
+      const currentGarden = this.props.gardens.filter(garden => garden.id == this.props.match.params.id);
+      if (currentGarden[0]) {
+        return (
+          <React.Fragment>          
+            <Link className="ui button right floated" to={`/gardens/${currentGarden[0].id}/rows/edit/${row.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
+            <Link className="ui button right floated" to={`/gardens/${currentGarden[0].id}/rows/delete/${row.id}`} style={{border: "1px black solid"}}>Delete</Link>         
+          </React.Fragment>        
+        );
+      }
+      if (!currentGarden[0]) {
+        return (
+          <div>Loading...</div>
+        );
+      };
+      
     };
   };
 
@@ -30,8 +40,11 @@ class RowList extends React.Component {
     return `rgb(${r}, ${g}, ${b})`
   }
 
-  rowList() {    
-    return this.props.rows.map((row) => {
+  rowList() {
+    const gardenNum = (window.location.pathname).split(`/`)[2];
+    const currentGardenRow = this.props.rows.filter(row => row.gardenNum == gardenNum)
+
+    return currentGardenRow.map((row) => {
       return (
         <div className="item" key={row.id}>          
           <div className="content" style={{
@@ -43,7 +56,7 @@ class RowList extends React.Component {
             padding: "1rem",
             boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
           }}>
-              <Link className="header" to={`/rows/${row.id}`} style={{
+              <Link className="header" to={`/gardens/${gardenNum}/rows/${row.id}`} style={{
                 color: this.rgbaText(row),
                 fontSize: "1.3rem",
                 fontWeight: "bold",
@@ -60,35 +73,46 @@ class RowList extends React.Component {
   };
 
   createRowButton = () => {
+    const gardenNum = (window.location.pathname).split(`/`)[2];
+
     if (this.props.isSignedIn) {
       return (
         <div className="ui button right floated content" style={{
           border: "1px black solid",
           boxShadow: "0rem .2rem .7rem .2rem rgba(0,0,0,.1)"
         }}>
-          <Link to="/rows/new">Create Row</Link>
+          <Link to={`/gardens/${gardenNum}/rows/new`}>Plant Item</Link>
         </div>        
       );
     };
   };
   
   render() {
-    return (
-    <div>
-      {this.rowList()}
-      {this.createRowButton()}    
-    </div>
-    );
+    const currentGarden = this.props.gardens.filter(garden => garden.id == this.props.match.params.id);
+    if (currentGarden[0]) {
+      return (
+        <div>
+          <h1>{currentGarden[0].gardenTitle}</h1>
+          {this.rowList()}
+          {this.createRowButton()}    
+        </div>
+        );
+    }
+    if (!currentGarden[0]) {
+      return <h3>Loading...</h3>
+    }
+    
   };
   
 };
 
 const mapStateToProps = (state) => {
   return {
+    gardens: Object.values(state.gardens),
     rows: Object.values(state.rows),
     curUserId: state.auth.userId,
     isSignedIn: state.auth.isSignedIn
   };
 };
 
-export default connect(mapStateToProps, {getRows})(RowList);
+export default connect(mapStateToProps, {getRows, getGardens})(RowList);
