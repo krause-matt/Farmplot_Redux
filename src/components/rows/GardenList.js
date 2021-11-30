@@ -19,11 +19,11 @@ class GardenList extends React.Component {
           </div>
           <div className="ui bottom attached button">
             <i className="edit icon"></i>
-            <Link to={`/gardens/edit/${garden.id}`}>Edit</Link>
+            <Link to={`/gardens/edit/${garden.id}`}>Edit Garden Name</Link>
           </div>
           <div className="ui bottom attached button">
             <i className="trash alternate icon"></i>
-            <Link to={`/gardens/delete/${garden.id}`}>Delete</Link>
+            <Link to={`/gardens/delete/${garden.id}`}>Delete Garden</Link>
           </div>
         </div>        
       );
@@ -64,15 +64,6 @@ class GardenList extends React.Component {
       );
     };
   };
-  
-  // render() {
-  //   return (
-  //   <div>
-  //     {this.gardenList()}
-  //     {this.createGardenButton()}    
-  //   </div>
-  //   );
-  // };
 
   render() {
     return (

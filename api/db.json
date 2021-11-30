@@ -1,26 +1,21 @@
 {
   "gardens": [
     {
-      "gardenTitle": "Matt",
+      "gardenTitle": "Matt's Garden",
       "userId": "113298301759812333784",
       "id": 1
     },
     {
-      "gardenTitle": "Julie",
+      "gardenTitle": "Julie's Vegetables",
       "userId": "113298301759812333784",
       "id": 2
-    },
-    {
-      "gardenTitle": "Mom",
-      "userId": "113298301759812333784",
-      "id": 3
     }
   ],
   "rows": [
     {
       "plant": "Tomato",
       "variety": "Cherry",
-      "plantDate": "Sun Apr 04 2021",
+      "plantDate": "Wed Apr 07 2021",
       "harvestDate": "Mon Aug 23 2021",
       "colorBack": {
         "r": 211,
@@ -60,27 +55,6 @@
       "id": 8
     },
     {
-      "plant": "Cucumber",
-      "variety": "English",
-      "plantDate": "Thu Apr 01 2021",
-      "harvestDate": "Sat Jul 31 2021",
-      "colorBack": {
-        "r": 174,
-        "g": 213,
-        "b": 129,
-        "a": 1
-      },
-      "colorText": {
-        "r": 51,
-        "g": 105,
-        "b": 30,
-        "a": 1
-      },
-      "gardenNum": "1",
-      "userId": "113298301759812333784",
-      "id": 9
-    },
-    {
       "plant": "Eggplant",
       "variety": "Chinese",
       "colorBack": {
@@ -98,6 +72,47 @@
       "gardenNum": "2",
       "userId": "113298301759812333784",
       "id": 10
+    },
+    {
+      "plant": "Potato",
+      "variety": "Russet",
+      "plantDate": "Wed Mar 17 2021",
+      "colorBack": {
+        "r": 130,
+        "g": 119,
+        "b": 23,
+        "a": 1
+      },
+      "colorText": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 1
+      },
+      "gardenNum": "3",
+      "userId": "113298301759812333784",
+      "id": 11
+    },
+    {
+      "plant": "Garlic",
+      "variety": "Softneck",
+      "plantDate": "Sun Nov 01 2020",
+      "harvestDate": "Fri Apr 23 2021",
+      "colorBack": {
+        "r": 255,
+        "g": 236,
+        "b": 179,
+        "a": 1
+      },
+      "colorText": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 1
+      },
+      "gardenNum": "2",
+      "userId": "113298301759812333784",
+      "id": 12
     }
   ]
 }

@@ -45,14 +45,14 @@ export const getRow = (id) => async dispatch => {
   });
 };
 
-export const deleteRow = (id) => async dispatch => {
+export const deleteRow = (id, gardenNum) => async dispatch => {
   await rows.delete(`/rows/${id}`);
   dispatch({
     type: DELETE_ROW,
     payload: id
   });
 
-  history.push("/");
+  history.push(`/gardens/${gardenNum}/rows`);
 };
 
 export const deleteRowByGarden = (id) => async dispatch => {
@@ -65,14 +65,14 @@ export const deleteRowByGarden = (id) => async dispatch => {
   history.push("/");
 };
 
-export const editRow = (id, formValues) => async dispatch => {
+export const editRow = (id, formValues, gardenNum) => async dispatch => {
   const response = await rows.patch(`/rows/${id}`, formValues);
   dispatch({
     type: EDIT_ROW,
     payload: response.data
   });
 
-  history.push("/");
+  history.push(`/gardens/${gardenNum}/rows`);
 };
 
 

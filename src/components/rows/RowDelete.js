@@ -13,10 +13,12 @@ class RowDelete extends React.Component {
   };
 
   actions() {
+    const gardenNum = (window.location.pathname).split(`/`)[2];
+    const gardenPath = `/gardens/${gardenNum}/rows`
     return (
       <React.Fragment>
-        <button onClick={() => this.props.deleteRow(this.props.match.params.id)} className="ui button negative">Delete</button>
-        <Link className="ui button" to="/">Cancel</Link>
+        <button onClick={() => this.props.deleteRow(this.props.match.params.id, gardenNum)} className="ui button negative">Delete</button>
+        <Link className="ui button" to={gardenPath}>Cancel</Link>
       </React.Fragment>
     );
   };

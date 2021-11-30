@@ -17,7 +17,7 @@ class RowList extends React.Component {
         return (
           <React.Fragment>          
             <Link className="ui button right floated" to={`/gardens/${currentGarden[0].id}/rows/edit/${row.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
-            <Link className="ui button right floated" to={`/rows/delete/${row.id}`} style={{border: "1px black solid"}}>Delete</Link>         
+            <Link className="ui button right floated" to={`/gardens/${currentGarden[0].id}/rows/delete/${row.id}`} style={{border: "1px black solid"}}>Delete</Link>         
           </React.Fragment>        
         );
       }
