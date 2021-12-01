@@ -74,26 +74,6 @@
       "id": 10
     },
     {
-      "plant": "Potato",
-      "variety": "Russet",
-      "plantDate": "Wed Mar 17 2021",
-      "colorBack": {
-        "r": 130,
-        "g": 119,
-        "b": 23,
-        "a": 1
-      },
-      "colorText": {
-        "r": 255,
-        "g": 255,
-        "b": 255,
-        "a": 1
-      },
-      "gardenNum": "3",
-      "userId": "113298301759812333784",
-      "id": 11
-    },
-    {
       "plant": "Garlic",
       "variety": "Softneck",
       "plantDate": "Sun Nov 01 2020",
