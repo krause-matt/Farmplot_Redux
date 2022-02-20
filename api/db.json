@@ -93,6 +93,68 @@
       "gardenNum": "2",
       "userId": "113298301759812333784",
       "id": 12
+    },
+    {
+      "plant": "Potato",
+      "variety": "Adirondak Blue",
+      "plantDate": "Sun Apr 18 2021",
+      "harvestDate": "Mon Sep 13 2021",
+      "colorBack": {
+        "r": 13,
+        "g": 71,
+        "b": 161,
+        "a": 1
+      },
+      "colorText": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 1
+      },
+      "gardenNum": "1",
+      "userId": "113298301759812333784",
+      "id": 13
+    },
+    {
+      "plant": "Chard",
+      "variety": "Rainbow",
+      "plantDate": "Tue Feb 22 2022",
+      "colorBack": {
+        "r": 255,
+        "g": 193,
+        "b": 7,
+        "a": 1
+      },
+      "colorText": {
+        "r": 233,
+        "g": 30,
+        "b": 99,
+        "a": 1
+      },
+      "gardenNum": "2",
+      "userId": "113298301759812333784",
+      "id": 14
+    },
+    {
+      "plant": "Mustard Green",
+      "variety": "Tatsoi",
+      "plantDate": "Sun May 02 2021",
+      "harvestDate": "Thu Oct 21 2021",
+      "colorBack": {
+        "r": 220,
+        "g": 237,
+        "b": 200,
+        "a": 1
+      },
+      "colorText": {
+        "r": 51,
+        "g": 105,
+        "b": 30,
+        "a": 1
+      },
+      "gardenNum": "1",
+      "userId": "113298301759812333784",
+      "id": 15
     }
   ]
 }

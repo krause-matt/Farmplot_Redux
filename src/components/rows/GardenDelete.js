@@ -19,9 +19,9 @@ class GardenDelete extends React.Component {
       gardenRowListIds.push(row.id);
     });
 
-    if (gardenRowListIds.length > 1) {
+    if (gardenRowListIds.length > 0) {
       for (let i = gardenRowListIds.length, j = 0; j < i; j++) {
-        this.props.deleteRow(gardenRowListIds[j]);
+        this.props.deleteRow(gardenRowListIds[j], this.props.match.params.id);
       };
     }
     this.props.deleteGarden(this.props.match.params.id);
