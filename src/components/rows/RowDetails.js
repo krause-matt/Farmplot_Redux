@@ -14,10 +14,10 @@ class RowDetails extends React.Component {
     const gardenNum = (window.location.pathname).split(`/`)[2];
     if (row.userId === this.props.currentUser && this.props.currentUser) {
       return (
-        <React.Fragment>          
-          <Link className="circular ui button green" to={`/gardens/${gardenNum}/rows/edit/${row.id}`} style={{border: "1px black solid", marginRight: "1rem"}}>Edit</Link>          
-          <Link className="circular ui button red" to={`/gardens/${gardenNum}/rows/delete/${row.id}`} style={{border: "1px black solid"}}>Delete</Link>         
-        </React.Fragment>        
+        <React.Fragment>
+          <Link className="circular ui button green" to={`/gardens/${gardenNum}/rows/edit/${row.id}`} style={{ border: "1px black solid", marginRight: "1rem" }}>Edit</Link>
+          <Link className="circular ui button red" to={`/gardens/${gardenNum}/rows/delete/${row.id}`} style={{ border: "1px black solid" }}>Delete</Link>
+        </React.Fragment>
       );
     };
   };
@@ -27,44 +27,56 @@ class RowDetails extends React.Component {
       return <div>...Loading</div>;
     };
 
-    const {plant, variety, plantDate, harvestDate} = this.props.row;
+    const { plant, variety, plantDate, harvestDate } = this.props.row;
+    const gardenNum = (window.location.pathname).split(`/`)[2];
 
     return (
-      <div className="ui card centered">
-        <div className="image">
-          <img src={`https://source.unsplash.com/random/?${plant}`} alt={plant}/>
-        </div>
-        <div className="content">
-          <div className="header">{plant}</div>
-          <div className="meta">
-            <span className="date">{variety}</span>
+      <React.Fragment>
+        <div className="ui centered stackable grid">
+          <div className="two wide left floated column center aligned">
+          <div className="ui compact floating message">
+          <Link className="inline" to={`/gardens/${gardenNum}/rows`}>Back to garden</Link>
           </div>
-          <div className="description">
             
           </div>
-        </div>
-        <div className="extra content">
-          <div>
-            <i className="calendar check outline icon"></i>
-            {plantDate === undefined ? "Planted date not selected" : `Planted : ${plantDate}`}
+          <div className="twelve wide centered column">
+            <div className="ui card centered">
+              <div className="image">
+                <img src={`https://source.unsplash.com/random/?${plant}`} alt={plant} />
+              </div>
+              <div className="content">
+                <div className="header">{plant}</div>
+                <div className="meta">
+                  <span className="date">{variety}</span>
+                </div>
+                <div className="description">
+                </div>
+              </div>
+              <div className="extra content">
+                <div>
+                  <i className="calendar check outline icon"></i>
+                  {plantDate === undefined ? "Planted date not selected" : `Planted : ${plantDate}`}
+                </div>
+              </div>
+              <div className="extra content">
+                <div>
+                  <i className="calendar check icon"></i>
+                  {harvestDate === undefined ? "Harvest date not selected" : `Harvested : ${harvestDate}`}
+                </div>
+              </div>
+              <div className="extra content">
+                <div className="ui grid">
+                  <div className="two wide row centered">
+                    {this.userAuthorize(this.props.row)}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="extra content">
-          <div>
-            <i className="calendar check icon"></i>
-            {harvestDate === undefined ? "Harvest date not selected" : `Harvested : ${harvestDate}`}
-          </div>
-        </div>
-        <div className="extra content">
-          <div className="ui grid">
-            <div className="two wide row centered">
-              {this.userAuthorize(this.props.row)}
-            </div>            
-          </div>
-        </div>        
-      </div> 
+      </React.Fragment>
     );
-  };  
+  };
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -75,4 +87,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 }
 
-export default connect(mapStateToProps, {getRow})(RowDetails);
+export default connect(mapStateToProps, { getRow })(RowDetails);
