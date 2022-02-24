@@ -37,7 +37,8 @@ class GardenList extends React.Component {
           <div className="center aligned header" style={{
             fontSize: "1.4rem",
             fontWeight: "bold",
-            margin: "2rem"
+            margin: "2rem",
+            padding: "2rem"
           }}>
             <Link to={`/gardens/${garden.id}/rows`} style={{
               color: "black"
@@ -68,7 +69,7 @@ class GardenList extends React.Component {
   render() {
     return (
     <div>
-      <div className="ui four cards">
+      <div className="ui three stackable cards">
         {this.gardenList()}       
       </div>
       {this.createGardenButton()} 
